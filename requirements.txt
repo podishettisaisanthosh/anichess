@@ -1,5 +1,6 @@
-kraken-sdk
+python-kraken-sdk
 web3
+
 
 
 
