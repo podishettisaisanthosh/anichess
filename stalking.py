@@ -1,12 +1,10 @@
 import asyncio
-from fastapi import FastAPI
 
 from web3 import AsyncWeb3
 from web3.providers import AsyncHTTPProvider
 
 from tradingbot import place_order
 
-app = FastAPI()
 
 
 # ======================================================
@@ -106,6 +104,7 @@ async def monitor():
     print("Starting from block:", last_block)
 
     while True:
+        print("hi")
         try:
             latest_block = await w3.eth.block_number
 
@@ -158,15 +157,8 @@ async def monitor():
 # RUN
 # ======================================================
 
-#asyncio.run(monitor())
+asyncio.run(monitor())
 
 
 
-@app.on_event("startup")
-async def startup():
-    asyncio.create_task(monitor())
 
-
-@app.get("/")
-async def health():
-    return {"status": "alive"}
