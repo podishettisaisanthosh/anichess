@@ -108,7 +108,6 @@ async def monitor():
     print("Starting from block:", last_block)
 
     while True:
-        print("hi")
         try:
             latest_block = await w3.eth.block_number
 
@@ -162,6 +161,7 @@ async def monitor():
 # ======================================================
 
 asyncio.run(monitor())
+
 
 
 
