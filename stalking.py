@@ -14,13 +14,17 @@ from tradingbot import place_order
 RPC_URL = "https://mainnet.base.org"
 
 WATCHED_WALLETS = {
-    "0x6cC148A7aDbc2EFadDED8e0E9A86f6FAF3678CbA",
+    "0xef7c11b7b19a0bae61c3dbb4de7dd043aaf1d7de",
+    "0xa99515d2360963b65823ad4d983b5053d310dfac",
+    "0xb9aea70c096fb84d19b8c4cc83de9743a921c945",
+    "0x0e066ed845a6853557a0d580b3ba998b0283aca8"
+    "0xceef7ce2af5e1a85afd6e4c48b9f01fc328d1af8",
     "0xf939518f99cb067ef371a00cdbabc9061f30e14b",
 }
 
 WATCHED_WALLETS = {w.lower() for w in WATCHED_WALLETS}
 
-POLL_INTERVAL = 2  # seconds
+POLL_INTERVAL = 0.5  # seconds
 
 APPROVE_SELECTOR = "095ea7b3"
 
@@ -126,7 +130,7 @@ async def monitor():
                             print("HASH :", tx["hash"].hex())
                             print("TYPE :", tx_type)
 
-                            if tx_type == "APPROVE":
+                            if tx_type == "APPROVE" and not flag[0]:
                                 #spender, amount = decode_approve(tx)
                                 token = tx["to"]
                                 symbol = await get_token_info(token)
@@ -158,6 +162,7 @@ async def monitor():
 # ======================================================
 
 asyncio.run(monitor())
+
 
 
 
