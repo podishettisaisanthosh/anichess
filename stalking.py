@@ -14,6 +14,7 @@ from tradingbot import place_order
 RPC_URL = "https://mainnet.base.org"
 
 WATCHED_WALLETS = {
+    "0x629d0f4b1a7cee23f8e60ead1864b55201eb0f1c",
     "0xef7c11b7b19a0bae61c3dbb4de7dd043aaf1d7de",
     "0xa99515d2360963b65823ad4d983b5053d310dfac",
     "0xb9aea70c096fb84d19b8c4cc83de9743a921c945",
@@ -162,6 +163,7 @@ async def monitor():
 # ======================================================
 
 asyncio.run(monitor())
+
 
 
 
