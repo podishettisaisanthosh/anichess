@@ -1,4 +1,5 @@
-kraken-spot-sdk
+kraken-sdk
 web3
+
 
 
