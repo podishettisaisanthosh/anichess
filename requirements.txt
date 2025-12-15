@@ -1,3 +1,4 @@
-krakenex
+kraken-spot-sdk
 web3
+
 
