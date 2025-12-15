@@ -65,6 +65,7 @@ TOKEN_CACHE = {}
 
 async def get_token_info(token_address):
     if token_address in TOKEN_CACHE:
+        print("token cache")
         return TOKEN_CACHE[token_address]
 
     try:
@@ -90,7 +91,7 @@ async def get_token_info(token_address):
         symbol = await erc20.functions.symbol().call()
     except:
         symbol = "UNKNOWN"
-
+    TOKEN_CACHE[token_address] = symbol
     return symbol
 
 # ======================================================
@@ -161,6 +162,7 @@ async def monitor():
 # ======================================================
 
 asyncio.run(monitor())
+
 
 
 
